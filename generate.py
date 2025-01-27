@@ -73,11 +73,11 @@ def generate_cards_page(json_file, template_file, output_file):
     # Predefined themes and colors
     theme_colors = {
         "RGPD": "#7DA661",  # Green
-        "Qualité et annotation des données": "#D08C66",  # Orange-brown
-        "droits d'auteur": "#6689B2",  # Blue
-        "Impact humain et sociétal de l’IA": "#D1B56C",  # Beige-gold
-        "Éthique et biais dans l’intelligence artificielle": "#D27E38",  # Orange
-        "Big data et surveillance": "#4B944B",  # Dark green
+        "qualite-annotation": "#D08C66",  # Orange-brown
+        "droits-auteur": "#6689B2",  # Blue
+        "impact_humain": "#D1B56C",  # Beige-gold
+        "ethique": "#D27E38",  # Orange
+        "big-data": "#4B944B",  # Dark green
     }
 
 
@@ -120,11 +120,11 @@ def generate_card_backs_page(json_file, template_file, output_file):
     # Predefined themes and colors
     theme_colors = {
         "RGPD": "#7DA661",  # Green
-        "Qualité et annotation des données": "#D08C66",  # Orange-brown
-        "droits d'auteur": "#6689B2",  # Blue
-        "Impact humain et sociétal de l’IA": "#D1B56C",  # Beige-gold
-        "Éthique et biais dans l’intelligence artificielle": "#D27E38",  # Orange
-        "Big data et surveillance": "#4B944B",  # Dark green
+        "qualite-annotation": "#D08C66",  # Orange-brown
+        "droits-auteur": "#6689B2",  # Blue
+        "impact_humain": "#D1B56C",  # Beige-gold
+        "ethique": "#D27E38",  # Orange
+        "big-data": "#4B944B",  # Dark green
     }
 
     # Generate styles using theme_colors (dictionary)
@@ -133,11 +133,11 @@ def generate_card_backs_page(json_file, template_file, output_file):
     # Predefined logos for themes
     theme_logos = {
         "RGPD": "logos/rgpd.png",
-        "Qualité et annotation des données": "logos/qualite-annotation.png",
-        "droits d'auteur": "logos/droits-auteur.png",
-        "Impact humain et sociétal de l’IA": "logos/impact-humain.png",
-        "Éthique et biais dans l’intelligence artificielle": "logos/ethique.png",
-        "Big data et surveillance": "logos/big-data.png",
+        "qualite-annotation": "logos/qualite-annotation.png",
+        "droits-auteur": "logos/droits-auteur.png",
+        "impact_humain": "logos/impact-humain.png",
+        "ethique": "logos/ethique.png",
+        "big-data": "logos/big-data.png",
     }
 
     # Generate HTML for all card backs

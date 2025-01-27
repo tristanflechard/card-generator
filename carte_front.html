@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game Cards</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        .card {
+            width: 80mm;
+            height: 100mm;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5mm;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .card .question {
+            font-size: 14px; /* Taille de police augmentée */
+            line-height: 1.4;
+            margin: 5px 0;
+            font-weight: 800; /* Police plus épaisse */
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 8px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial Black';
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .card .options {
+            text-align: left;
+            font-size: 11px;
+            padding: 3px 5px;
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .card .qcm-option {
+            margin: 3px 0;
+            padding: 5px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 4px;
+            border-left: 2px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .card .qcm-option::before {
+            content: "•";
+            color: white;
+            font-size: 12px;
+            margin-right: 4px;
+        }
+
+        /* Modification pour aligner Vrai/Faux l'un en dessous de l'autre */
+        .vrai-faux-container {
+            display: flex;
+            flex-direction: column; /* Aligne verticalement les options */
+            gap: 6px;
+            padding: 0 15px;
+            margin: 8px 0;
+            justify-content: center;
+            align-items: center; /* Centrer les options */
+        }
+
+        .vf-option {
+            padding: 5px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 9px;
+            width: 45mm;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 12mm;
+            flex: 1;
+        }
+
+        .vrai-option {
+            background: #388E3C;
+        }
+
+        .faux-option {
+            background: #D32F2F;
+        }
+
+        .answer-section {
+            font-size: 9px;
+            background-color: #f4f4f4;
+            color: #333;
+            border-radius: 8px;
+            padding: 6px;
+            transform: rotate(180deg);
+            margin-top: auto;
+            height: 30%;
+        }
+
+        .answer {
+            font-weight: bold;
+            margin-bottom: 3px;
+            background: rgba(255,255,255,0.9);
+            padding: 4px;
+            border-radius: 4px;
+            display: inline-block;
+            width: fit-content;
+            margin: 3px auto;
+        }
+
+        .explanation {
+            font-style: italic;
+            margin: 6px 0;
+            font-size: 8px;
+            background: rgba(255,255,255,0.85);
+            padding: 6px;
+            border-radius: 4px;
+            color: #222;
+        }
+
+        .sources {
+            font-size: 7px;
+            color: #666;
+            text-align: right;
+        }
+
+        
+        .theme-rgpd {
+            background-color: #7DA661;
+            color: #fff; /* Ensure text is readable */
+        }
+        
+
+        .theme-qualite-annotation {
+            background-color: #D08C66;
+            color: #fff; /* Ensure text is readable */
+        }
+        
+
+        .theme-droits-auteur {
+            background-color: #6689B2;
+            color: #fff; /* Ensure text is readable */
+        }
+        
+
+        .theme-impact_humain {
+            background-color: #D1B56C;
+            color: #fff; /* Ensure text is readable */
+        }
+        
+
+        .theme-ethique {
+            background-color: #D27E38;
+            color: #fff; /* Ensure text is readable */
+        }
+        
+
+        .theme-big-data {
+            background-color: #4B944B;
+            color: #fff; /* Ensure text is readable */
+        }
+        
+
+        @media print {
+            body {
+                display: block;
+                font-size: 9pt;
+            }
+            .card {
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="card theme-qualite-annotation">
+        <div class="question">Les données bruyantes sont toujours inutiles et doivent être systématiquement supprimées.</div>
+        <div class="options">
+            
+        <div class="vrai-faux-container">
+            <div class="vf-option vrai-option">VRAI</div>
+            <div class="vf-option faux-option">FAUX</div>
+        </div>
+        
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: Faux</div>
+            <div class="explanation">Les données bruyantes ne sont pas toujours inutiles. Bien qu'elles puissent contenir des erreurs ou des incohérences, elles peuvent parfois refléter des variations naturelles ou des cas particuliers importants. L'analyse et le nettoyage des données doivent être effectués avec discernement pour ne pas perdre d'informations potentiellement précieuses.</div>
+            <div class="sources">
+                Télécom Paris [1]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Une base de données parfaitement équilibrée est toujours préférable pour l'entraînement d'un modèle d'IA.</div>
+        <div class="options">
+            
+        <div class="vrai-faux-container">
+            <div class="vf-option vrai-option">VRAI</div>
+            <div class="vf-option faux-option">FAUX</div>
+        </div>
+        
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: Faux</div>
+            <div class="explanation">Bien qu'un équilibre soit souvent souhaitable, une base de données parfaitement équilibrée n'est pas toujours la meilleure option. Dans certains cas, un déséquilibre peut refléter la réalité du domaine étudié. L'important est que le modèle soit capable de généraliser correctement et de traiter les cas rares de manière appropriée.</div>
+            <div class="sources">
+                Télécom Paris [1]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quelle est la meilleure pratique pour garantir la qualité des annotations de données ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Confier l'annotation à une seule personne experte</div>
+<div class="qcm-option">B) Utiliser uniquement des outils d'annotation automatisés</div>
+<div class="qcm-option">C) Mettre en place un processus de validation croisée avec plusieurs annotateurs</div>
+<div class="qcm-option">D) Annoter le plus rapidement possible pour gagner du temps</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: C) Mettre en place un processus de validation croisée avec plusieurs annotateurs</div>
+            <div class="explanation">La validation croisée avec plusieurs annotateurs permet de réduire les biais individuels, d'identifier les erreurs potentielles et d'améliorer la cohérence globale des annotations. Cette approche collaborative renforce la fiabilité et la qualité des données annotées.</div>
+            <div class="sources">
+                CNIL [2]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quel impact peut avoir l'utilisation de données mal annotées sur un projet d'IA ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Aucun impact significatif</div>
+<div class="qcm-option">B) Amélioration des performances du modèle</div>
+<div class="qcm-option">C) Biais dans les résultats et décisions du modèle</div>
+<div class="qcm-option">D) Accélération du processus d'apprentissage</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: C) Biais dans les résultats et décisions du modèle</div>
+            <div class="explanation">Les données mal annotées peuvent introduire des biais significatifs dans le modèle d'IA, conduisant à des résultats erronés ou des décisions injustes. La qualité des annotations est cruciale pour garantir la fiabilité et l'équité des systèmes d'IA.</div>
+            <div class="sources">
+                CNIL [2]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quelle technique peut être utilisée pour améliorer la qualité des données d'entraînement ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Augmentation de données</div>
+<div class="qcm-option">B) Suppression aléatoire de données</div>
+<div class="qcm-option">C) Utilisation exclusive de données synthétiques</div>
+<div class="qcm-option">D) Ignorer les valeurs aberrantes</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: A) Augmentation de données</div>
+            <div class="explanation">L'augmentation de données est une technique qui consiste à créer de nouvelles données d'entraînement à partir des données existantes, en appliquant des transformations ou des variations. Cette approche peut aider à améliorer la robustesse et la généralisation du modèle en l'exposant à une plus grande variété de scénarios.</div>
+            <div class="sources">
+                Télécom Paris [1]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quel est l'avantage principal de l'utilisation d'un schéma d'annotation standardisé ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Réduction du temps d'annotation</div>
+<div class="qcm-option">B) Augmentation du volume de données</div>
+<div class="qcm-option">C) Amélioration de la cohérence entre les annotateurs</div>
+<div class="qcm-option">D) Élimination complète des erreurs d'annotation</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: C) Amélioration de la cohérence entre les annotateurs</div>
+            <div class="explanation">Un schéma d'annotation standardisé fournit des directives claires et cohérentes pour tous les annotateurs. Cela permet de réduire les variations d'interprétation et d'améliorer la cohérence globale des annotations, ce qui est essentiel pour la qualité des données d'entraînement.</div>
+            <div class="sources">
+                CNIL [2]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Les données personnelles non pertinentes peuvent toujours être conservées sans conséquence.</div>
+        <div class="options">
+            
+        <div class="vrai-faux-container">
+            <div class="vf-option vrai-option">VRAI</div>
+            <div class="vf-option faux-option">FAUX</div>
+        </div>
+        
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: Faux</div>
+            <div class="explanation">La conservation de données personnelles non pertinentes constitue une violation du RGPD et peut entraîner des risques juridiques et éthiques. Les organisations doivent appliquer le principe de minimisation des données, ne conservant que les informations strictement nécessaires.</div>
+            <div class="sources">
+                Règlement Général sur la Protection des Données (RGPD) [13]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">L'anonymisation complète des données garantit toujours leur protection.</div>
+        <div class="options">
+            
+        <div class="vrai-faux-container">
+            <div class="vf-option vrai-option">VRAI</div>
+            <div class="vf-option faux-option">FAUX</div>
+        </div>
+        
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: Faux</div>
+            <div class="explanation">L'anonymisation n'est pas un processus infaillible. Des techniques de ré-identification peuvent permettre de reconstituer des données personnelles, notamment avec le croisement de plusieurs sources d'information.</div>
+            <div class="sources">
+                CNIL [11]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quel critère est le plus important pour évaluer la qualité d'un jeu de données ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Le volume total de données</div>
+<div class="qcm-option">B) La diversité et la représentativité</div>
+<div class="qcm-option">C) La rapidité de collecte</div>
+<div class="qcm-option">D) Le coût de la collecte</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: B) La diversité et la représentativité</div>
+            <div class="explanation">Un jeu de données de qualité doit représenter fidèlement la réalité du problème étudié, avec une diversité suffisante pour éviter les biais et permettre une généralisation efficace.</div>
+            <div class="sources">
+                Machine Learning Yearning, Andrew Ng [16]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Qu'est-ce qui caractérise principalement une donnée 'bruitée' ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Sa couleur</div>
+<div class="qcm-option">B) La présence d'informations non pertinentes ou erronées</div>
+<div class="qcm-option">C) Sa taille en octets</div>
+<div class="qcm-option">D) Son ancienneté</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: B) La présence d'informations non pertinentes ou erronées</div>
+            <div class="explanation">Une donnée bruitée contient des informations inexactes, incomplètes ou non significatives qui peuvent altérer l'analyse et les performances des modèles d'apprentissage automatique.</div>
+            <div class="sources">
+                IEEE Transactions on Pattern Analysis and Machine Intelligence [15]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quelle méthode est la plus efficace pour détecter les biais dans un jeu de données ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Analyse statistique descriptive</div>
+<div class="qcm-option">B) Suppression des données atypiques</div>
+<div class="qcm-option">C) Utilisation d'un algorithme unique</div>
+<div class="qcm-option">D) Consultation d'un seul expert</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: A) Analyse statistique descriptive</div>
+            <div class="explanation">L'analyse statistique descriptive permet d'examiner la distribution, les valeurs extrêmes et la représentation des différentes catégories, révélant ainsi les potentiels biais de manière objective.</div>
+            <div class="sources">
+                Harvard Data Science Review [14]
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="card theme-qualite-annotation">
+        <div class="question">Quel principe est essentiel dans l'annotation de données pour l'IA ?</div>
+        <div class="options">
+            <div class="qcm-option">A) Annoter le plus rapidement possible</div>
+<div class="qcm-option">B) Maximiser le nombre d'annotations</div>
+<div class="qcm-option">C) Garantir la cohérence et la précision</div>
+<div class="qcm-option">D) Utiliser uniquement des outils automatiques</div>
+        </div>
+        <div class="answer-section">
+            <div class="answer">Réponse: C) Garantir la cohérence et la précision</div>
+            <div class="explanation">La qualité des annotations est cruciale. Une annotation cohérente et précise permet de construire des modèles d'IA plus fiables et performants, en réduisant les risques d'apprentissage erroné.</div>
+            <div class="sources">
+                Journal of Artificial Intelligence Research [17]
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

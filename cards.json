@@ -8,7 +8,7 @@
         "sources": [
           { "ref": 1, "name": "Télécom Paris" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "Vrai ou Faux",
@@ -18,7 +18,7 @@
         "sources": [
           { "ref": 1, "name": "Télécom Paris" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -34,7 +34,7 @@
         "sources": [
           { "ref": 2, "name": "CNIL" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -50,7 +50,7 @@
         "sources": [
           { "ref": 2, "name": "CNIL" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -66,7 +66,7 @@
         "sources": [
           { "ref": 1, "name": "Télécom Paris" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -82,7 +82,7 @@
         "sources": [
           { "ref": 2, "name": "CNIL" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "Vrai ou Faux",
@@ -92,7 +92,7 @@
         "sources": [
           { "ref": 13, "name": "Règlement Général sur la Protection des Données (RGPD)" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "Vrai ou Faux",
@@ -102,7 +102,7 @@
         "sources": [
           { "ref": 11, "name": "CNIL" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -118,7 +118,7 @@
         "sources": [
           { "ref": 16, "name": "Machine Learning Yearning, Andrew Ng" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -134,7 +134,7 @@
         "sources": [
           { "ref": 15, "name": "IEEE Transactions on Pattern Analysis and Machine Intelligence" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -150,7 +150,7 @@
         "sources": [
           { "ref": 14, "name": "Harvard Data Science Review" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       },
       {
         "type": "QCM",
@@ -166,7 +166,7 @@
         "sources": [
           { "ref": 17, "name": "Journal of Artificial Intelligence Research" }
         ],
-        "theme": "Qualité et annotation des données"
+        "theme": "qualite-annotation"
       }
     ]
   }
