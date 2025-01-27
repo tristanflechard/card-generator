@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game Cards</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        .card {
+            width: 80mm;
+            height: 100mm;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5mm;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .card .question {
+            font-size: 14px; /* Taille de police augmentée */
+            line-height: 1.4;
+            margin: 5px 0;
+            font-weight: 800; /* Police plus épaisse */
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 8px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial Black';
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .card .options {
+            text-align: left;
+            font-size: 11px;
+            padding: 3px 5px;
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .card .qcm-option {
+            margin: 3px 0;
+            padding: 5px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 4px;
+            border-left: 2px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .card .qcm-option::before {
+            content: "•";
+            color: white;
+            font-size: 12px;
+            margin-right: 4px;
+        }
+
+        /* Modification pour aligner Vrai/Faux l'un en dessous de l'autre */
+        .vrai-faux-container {
+            display: flex;
+            flex-direction: column; /* Aligne verticalement les options */
+            gap: 6px;
+            padding: 0 15px;
+            margin: 8px 0;
+            justify-content: center;
+            align-items: center; /* Centrer les options */
+        }
+
+        .vf-option {
+            padding: 5px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 9px;
+            width: 45mm;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 12mm;
+            flex: 1;
+        }
+
+        .vrai-option {
+            background: #388E3C;
+        }
+
+        .faux-option {
+            background: #D32F2F;
+        }
+
+        .answer-section {
+            font-size: 9px;
+            background-color: #f4f4f4;
+            color: #333;
+            border-radius: 8px;
+            padding: 6px;
+            transform: rotate(180deg);
+            margin-top: auto;
+            height: 30%;
+        }
+
+        .answer {
+            font-weight: bold;
+            margin-bottom: 3px;
+            background: rgba(255,255,255,0.9);
+            padding: 4px;
+            border-radius: 4px;
+            display: inline-block;
+            width: fit-content;
+            margin: 3px auto;
+        }
+
+        .explanation {
+            font-style: italic;
+            margin: 6px 0;
+            font-size: 8px;
+            background: rgba(255,255,255,0.85);
+            padding: 6px;
+            border-radius: 4px;
+            color: #222;
+        }
+
+        .sources {
+            font-size: 7px;
+            color: #666;
+            text-align: right;
+        }
+
+        {theme_styles}
+
+        @media print {
+            body {
+                display: block;
+                font-size: 9pt;
+            }
+            .card {
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    {cards}
+</body>
+</html>

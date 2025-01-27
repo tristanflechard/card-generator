@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game Cards</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        .card {
+            width: 80mm;
+            height: 100mm;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5mm;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .card .theme-name {
+    font-size: 18px;  /* Slightly larger font size */
+    font-weight: bold;  /* Bold the text for emphasis */
+    color: #fff;  /* Ensure the text is white for contrast */
+    text-transform: uppercase;  /* Make the theme name all uppercase */
+    letter-spacing: 1px;  /* Add spacing between letters for a cleaner look */
+    margin-bottom: 20px;  /* Add space below the theme name */
+    padding: 5px;  /* Add padding for better spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Soft text shadow for better readability */
+    font-family: 'Arial Black', sans-serif;  /* Strong font for emphasis */
+    display: flex;
+    justify-content: center;  /* Center the text horizontally */
+    align-items: center;  /* Center the text vertically */
+}
+
+        .card .theme-logo img {
+    max-width: 90%;  /* Set maximum width to 90% of the card */
+    max-height: 90%; /* Set maximum height to 90% of the card */
+    object-fit: contain;  /* Ensure the logo fits inside the bounds */
+    margin: 0 auto;  /* Center the logo horizontally */
+}
+
+
+        {theme_styles}
+
+        @media print {
+            body {
+                display: block;
+                font-size: 9pt;
+            }
+            .card {
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    {cards}
+</body>
+</html>
